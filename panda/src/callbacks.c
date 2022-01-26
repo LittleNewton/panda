@@ -64,6 +64,7 @@ int nb_panda_plugins_loaded = 0;
 char *panda_plugins_loaded[MAX_PANDA_PLUGINS];
 
 bool panda_please_flush_tb = false;
+bool panda_please_exit_cpu = false;
 bool panda_update_pc = false;
 bool panda_use_memcb = false;
 bool panda_tb_chaining = true;
@@ -794,6 +795,21 @@ bool panda_flush_tb(void)
 void panda_do_flush_tb(void)
 {
     panda_please_flush_tb = true;
+}
+
+
+bool panda_exit_cpu(void)
+{
+    if (panda_please_exit_cpu){
+        panda_please_exit_cpu = false;
+        return true;
+    }else{
+        return false;
+    }
+}
+
+void panda_do_exit_cpu(void){
+    panda_please_exit_cpu = true;
 }
 
 void panda_enable_precise_pc(void)

@@ -95,6 +95,8 @@ extern PandaOsFamily panda_os_familyno; // numeric identifier for family
 bool panda_flush_tb(void);
 
 void panda_do_flush_tb(void);
+bool panda_exit_cpu(void);
+void panda_do_exit_cpu(void);
 void panda_enable_precise_pc(void);
 void panda_disable_precise_pc(void);
 void panda_enable_memcb(void);
